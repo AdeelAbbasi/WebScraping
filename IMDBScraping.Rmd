@@ -18,31 +18,42 @@ Data converstion:
 Sometime it's required to convert the string to number or factor etc. Convert input can help to do that
 convert -> as.numeric or as.
 
+# *** This function is written by ADEEL ABBASI to clean the web data ****
+
 ```{r}
 
 scrapeData <- function(wp, selector, func = NULL, convert = NULL, filter = NULL, replace = "")
 {
-  data_html <- rvest::html_nodes(wp,selector)
+    # find the node base on the selector information provided
+    data_html <- rvest::html_nodes(wp,selector)
   
-  data <- rvest::html_text(data_html)
+    # load the data
+    data <- rvest::html_text(data_html)
 
-  data <- gsub("  ", "", data)
-  data <- gsub("\n", "", data)
+    #remove extra space
+    data <- gsub("  ", "", data)
+
+    # remove new line
+    data <- gsub("\n", "", data)
   
-  if(!is.null(filter)){
-    data <- gsub(filter, replace, data)
-  }
-  
-  if(!is.null(convert)){
-   data <- convert(data)
-  }
-  
-  if (!is.null(func)){
-    func(data)
-  }
-  else{
-    data
-  }
+    # if filter is provided then remove it
+    if(!is.null(filter)){
+        data <- gsub(filter, replace, data)
+    }
+    
+    # if conversion method is provided then convert the data
+    if(!is.null(convert)){
+        data <- convert(data)
+    }
+    
+    # if any function need to call on top of the data then apply that function and return the data
+    if (!is.null(func)){
+        func(data)
+    }
+    else{
+        # return the processed data
+        data
+    }
 }
 
 ```
