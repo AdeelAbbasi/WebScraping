@@ -18,7 +18,7 @@ Data converstion:
 Sometime it's required to convert the string to number or factor etc. Convert input can help to do that
 convert -> as.numeric or as.
 
-# *** This function is written by ADEEL ABBASI to clean the web data ****
+##### *** This function is written by ADEEL ABBASI to clean the web data ****
 
 ```{r}
 
