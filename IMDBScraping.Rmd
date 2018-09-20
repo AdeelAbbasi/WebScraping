@@ -55,16 +55,16 @@ url <- 'http://www.imdb.com/search/title?count=100&release_date=2016,2016&title_
 
 webpage <- read_html(url)
 
-rank_data <- scrapeData(webpage, ".text-primary", NULL, as.numeric)
-title_data <- scrapeData(webpage, ".lister-item-header a")
-description_data <- scrapeData(webpage,'.ratings-bar+ .text-muted')
-runtime_data <- scrapeData(webpage,'.text-muted .runtime', filter = " min", convert = as.numeric)
-genre_data <- scrapeData(webpage,'.genre', filter = ',.*', convert = as.factor)
-rating_data <- scrapeData(webpage,'.ratings-imdb-rating strong', conver = as.numeric)
-votes_data <- scrapeData(webpage,'.sort-num_votes-visible span:nth-child(2)', filter = ",", as.numeric)
-directors_data <- scrapeData(webpage,'.text-muted+ p a:nth-child(1)', convert = as.factor)
-actors_data <- scrapeData(webpage,'.lister-item-content .ghost+ a', convert = as.factor)
-#metascore_data <- scrapeData(webpage,'.metascore', convert = as.numeric)
+rank_data         <- scrapeData(webpage, ".text-primary", NULL, as.numeric)
+title_data        <- scrapeData(webpage, ".lister-item-header a")
+description_data  <- scrapeData(webpage,'.ratings-bar+ .text-muted')
+runtime_data      <- scrapeData(webpage,'.text-muted .runtime', filter = " min", convert = as.numeric)
+genre_data        <- scrapeData(webpage,'.genre', filter = ',.*', convert = as.factor)
+rating_data       <- scrapeData(webpage,'.ratings-imdb-rating strong', conver = as.numeric)
+votes_data        <- scrapeData(webpage,'.sort-num_votes-visible span:nth-child(2)', filter = ",", as.numeric)
+directors_data    <- scrapeData(webpage,'.text-muted+ p a:nth-child(1)', convert = as.factor)
+actors_data       <- scrapeData(webpage,'.lister-item-content .ghost+ a', convert = as.factor)
+#metascore_data   <- scrapeData(webpage,'.metascore', convert = as.numeric)
 ```
 
 Above code populated all the data in a variable
