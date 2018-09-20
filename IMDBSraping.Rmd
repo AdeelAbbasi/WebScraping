@@ -51,7 +51,7 @@ scrapeData <- function(wp, selector, func = NULL, convert = NULL, filter = NULL,
 #install.packages('rvest')
 library('rvest')
 
-url <- 'http://www.imdb.com/search/title?count=100&release_date=2018,2018&title_type=feature'
+url <- 'http://www.imdb.com/search/title?count=100&release_date=2016,2016&title_type=feature'
 
 webpage <- read_html(url)
 
