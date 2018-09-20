@@ -65,6 +65,7 @@ votes_data        <- scrapeData(webpage,'.sort-num_votes-visible span:nth-child(
 directors_data    <- scrapeData(webpage,'.text-muted+ p a:nth-child(1)', convert = as.factor)
 actors_data       <- scrapeData(webpage,'.lister-item-content .ghost+ a', convert = as.factor)
 #metascore_data   <- scrapeData(webpage,'.metascore', convert = as.numeric)
+
 ```
 
 Above code populated all the data in a variable
@@ -88,7 +89,7 @@ qplot(data = movies_df,Runtime,fill = Genre,bins = 30)
 
 ```
 
-### Question 1: Based on the above data, which movie from which Genre had the longest runtime?
+### Question: Based on the above data, which movie from which Genre had the longest runtime?
 
 
 ```{r}
@@ -96,5 +97,3 @@ qplot(data = movies_df,Runtime,fill = Genre,bins = 30)
 ggplot(movies_df,aes(x=Runtime,y=Rating))+
 geom_point(aes(size=Votes,col=Genre))
 ```
-
-### Question 1: Based on the above data, which movie from which Genre had the longest runtime?
